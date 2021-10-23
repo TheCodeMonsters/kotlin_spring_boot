@@ -81,7 +81,7 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzResizableModule } from 'ng-zorro-antd/resizable';
 import { NzPipesModule } from 'ng-zorro-antd/pipes';
 
-// import { TodoListService } from './todo-list/todo-list.service';
+import { TodoListService } from './todo-list/todo-list.service';
 
 registerLocaleData(en);
 
@@ -98,7 +98,7 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    
+
     // Ant Design Modules
     NzAffixModule,
     NzAlertModule,
@@ -168,8 +168,8 @@ registerLocaleData(en);
     NzPipesModule,
   ],
 
-  //TodoListService
-  providers: [{ provide: NZ_I18N, useValue: en_US },],
+  //
+  providers: [{ provide: NZ_I18N, useValue: en_US },TodoListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
