@@ -38,5 +38,11 @@ class TodoController(val todoRepository: TodoRepository) {
         return todoRepository.save(updateTodo)
     }
 
+    // Metodo para eliminar un post
+    @DeleteMapping("/{todoId}")
+    fun deleteTodo(@PathVariable("todoId") todoId: Long){
+        todoRepository.deleteById(todoId)
+    }
+
 
 }
