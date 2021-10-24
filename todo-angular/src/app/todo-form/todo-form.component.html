@@ -19,7 +19,7 @@
 
         <nz-form-item>
              <nz-form-control [nzOffset]="7" [nzSpan]="12"> 
-              <button nz-button nzType="primary" [disabled]>add</button>
+              <button nz-button nzType="primary" [disabled]="!validateForm.valid">add</button>
             </nz-form-control>
         </nz-form-item>
 

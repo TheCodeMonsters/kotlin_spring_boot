@@ -16,7 +16,7 @@ export class TodoListService {
   }
 
 // Update
-  updated(todo: Todo): Observable<Todo> {
+  update(todo: Todo): Observable<Todo> {
     const copy = this.convert(todo);
     return this.http.put<Todo>(`${this.resourceUrl}/${copy.id}`, copy);
   }
