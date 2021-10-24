@@ -1,15 +1,15 @@
-import { NzMessageService } from 'ng-zorro-antd/message';
 import { Component, OnInit } from '@angular/core';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { Observable } from 'rxjs';
 import { Todo } from '../models/todo';
 import { TodoListService } from './todo-list.service';
+
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-
   todos$!: Observable<Todo[]>;
 
   constructor(
@@ -26,29 +26,23 @@ export class TodoListComponent implements OnInit {
       .subscribe(() => {
         this.todos$ = this.todoListService.findAll();
       });
-
     this.nzMessageService.info('Changed Status');
-
   }
 
-  delete(todo: Todo) {
+  deleteTodo(todo: Todo){
     this.todoListService.delete(todo.id)
       .subscribe(() => {
         this.todos$ = this.todoListService.findAll();
       });
-
-    this.nzMessageService.warning('Todo Delete')
+    this.nzMessageService.warning('Todo Deleted');
   }
 
   cancel(): void {
     this.nzMessageService.info('Click cancelled');
   }
 
-
   ngOnInit(): void {
-
     this.todos$ = this.todoListService.findAll();
-
   }
 
 }

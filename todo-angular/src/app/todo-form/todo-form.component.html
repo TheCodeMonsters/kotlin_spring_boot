@@ -1,4 +1,4 @@
-<div nz-row >
+<div nz-row [nzGutter]="20">
   <div nz-col>
     <h1>Form</h1>
     <form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)">
@@ -11,8 +11,8 @@
 
         <nz-form-item>
           <nz-form-control nzErrorTip="Please input your description" > 
-            <nz-textarea-count [nzMaxCharacterCount]="50">
-              <textarea rows="4" formControlName="description" nz-input placeholder="Description"></textarea>
+            <nz-textarea-count [nzMaxCharacterCount]="100">
+              <textarea rows="4" formControlName="description" nz-input></textarea>
             </nz-textarea-count>
           </nz-form-control>
         </nz-form-item>
