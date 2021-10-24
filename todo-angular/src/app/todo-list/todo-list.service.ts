@@ -6,7 +6,7 @@ import { Todo } from '../models/todo';
 @Injectable()
 export class TodoListService {
 
-  private resourceUrl = 'http://localhost:9999/todos'
+  private resourceUrl = 'http://localhost:9999/todos';
 
   constructor(private http: HttpClient) { }
 
@@ -15,7 +15,7 @@ export class TodoListService {
     return this.http.post<Todo>(this.resourceUrl, copy);
   }
 
-// Update
+  // Update
   update(todo: Todo): Observable<Todo> {
     const copy = this.convert(todo);
     return this.http.put<Todo>(`${this.resourceUrl}/${copy.id}`, copy);
@@ -29,9 +29,9 @@ export class TodoListService {
     return this.http.get<Todo[]>(this.resourceUrl);
   }
 
-// Delete
-  delete(id: number | undefined ): Observable<HttpResponse<any>> {
-      return this.http.delete<any>(`${this.resourceUrl}/${id}`);
+  // Delete
+  delete(id: number | undefined): Observable<HttpResponse<any>> {
+    return this.http.delete<any>(`${this.resourceUrl}/${id}`);
   }
 
   private convert(todo: Todo): Todo {

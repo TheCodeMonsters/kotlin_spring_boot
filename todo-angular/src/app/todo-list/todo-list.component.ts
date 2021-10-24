@@ -31,17 +31,24 @@ export class TodoListComponent implements OnInit {
 
   }
 
-  delete(todo: Todo){
+  delete(todo: Todo) {
     this.todoListService.delete(todo.id)
-      .subscribe(() =>{
+      .subscribe(() => {
         this.todos$ = this.todoListService.findAll();
-      }) 
+      });
+
+    this.nzMessageService.warning('Todo Delete')
+  }
+
+  cancel(): void {
+    this.nzMessageService.info('Click cancelled');
   }
 
 
-
-
   ngOnInit(): void {
+
+    this.todos$ = this.todoListService.findAll();
+
   }
 
 }
